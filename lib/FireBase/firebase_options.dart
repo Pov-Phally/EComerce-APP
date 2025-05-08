@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -28,15 +25,9 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -49,9 +40,18 @@ class DefaultFirebaseOptions {
     }
   }
 
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyCKSM2HDPda2LfVqUgShhG3vByi2flgPYM',
+    appId: '1:382877179056:web:6503c4bfb3505f4c932f75',
+    messagingSenderId: '382877179056',
+    projectId: 'kh-online-store-559cd',
+    authDomain: 'kh-online-store-559cd.firebaseapp.com',
+    storageBucket: 'kh-online-store-559cd.firebasestorage.app',
+  );
+
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBUAmxxJZR9w9z8VYILpcewcXkQFtmGfX0',
-    appId: '1:382877179056:android:e221d84dd9c02a6e932f75',
+    appId: '1:382877179056:android:6ee871e583805d8b932f75',
     messagingSenderId: '382877179056',
     projectId: 'kh-online-store-559cd',
     storageBucket: 'kh-online-store-559cd.firebasestorage.app',
@@ -59,12 +59,33 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyBgvLPPrimPiFwKB3mi81i2SoIOqt2KE-k',
-    appId: '1:382877179056:ios:68a144d1c3795258932f75',
+    appId: '1:382877179056:ios:6c7038aacedf84c0932f75',
     messagingSenderId: '382877179056',
     projectId: 'kh-online-store-559cd',
     storageBucket: 'kh-online-store-559cd.firebasestorage.app',
     androidClientId: '382877179056-9jq39vjmbq63c7ej7l5haacttsg72q23.apps.googleusercontent.com',
-    iosClientId: '382877179056-cho6jedcoh758kbc2mj154ephpu205mn.apps.googleusercontent.com',
-    iosBundleId: 'com.example.khOnlineStoreAdmin',
+    iosClientId: '382877179056-v442dd7miheas1vfmkt1ovistc7dun1q.apps.googleusercontent.com',
+    iosBundleId: 'com.example.khOnlineStore',
   );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyBgvLPPrimPiFwKB3mi81i2SoIOqt2KE-k',
+    appId: '1:382877179056:ios:6c7038aacedf84c0932f75',
+    messagingSenderId: '382877179056',
+    projectId: 'kh-online-store-559cd',
+    storageBucket: 'kh-online-store-559cd.firebasestorage.app',
+    androidClientId: '382877179056-9jq39vjmbq63c7ej7l5haacttsg72q23.apps.googleusercontent.com',
+    iosClientId: '382877179056-v442dd7miheas1vfmkt1ovistc7dun1q.apps.googleusercontent.com',
+    iosBundleId: 'com.example.khOnlineStore',
+  );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyCKSM2HDPda2LfVqUgShhG3vByi2flgPYM',
+    appId: '1:382877179056:web:545dc1bc441659f9932f75',
+    messagingSenderId: '382877179056',
+    projectId: 'kh-online-store-559cd',
+    authDomain: 'kh-online-store-559cd.firebaseapp.com',
+    storageBucket: 'kh-online-store-559cd.firebasestorage.app',
+  );
+
 }

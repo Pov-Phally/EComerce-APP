@@ -8,7 +8,7 @@ import 'package:kh_online_store/Controller/Wishlist/wishlist_controller.dart';
 import 'package:kh_online_store/Controller/get_initial_screen_controller.dart';
 import 'package:kh_online_store/stripe_service.dart';
 import 'Controller/Cart/cart_controller.dart';
-import 'firebase_options.dart';
+import 'FireBase/firebase_options.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
