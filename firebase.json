@@ -1,0 +1,61 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "kh-online-store-559cd",
+          "appId": "1:382877179056:android:e221d84dd9c02a6e932f75",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "kh-online-store-559cd",
+          "configurations": {
+            "android": "1:382877179056:android:e221d84dd9c02a6e932f75",
+            "ios": "1:382877179056:ios:68a144d1c3795258932f75"
+          }
+        }
+      }
+    }
+  },
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "default",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "*.local"
+      ]
+    }
+  ],
+  "emulators": [
+    {
+      "name": "firestore",
+      "port": 8080,
+      "host": "localhost"
+    },
+    {
+      "name": "auth",
+      "port": 9099,
+      "host": "localhost"
+    },
+    {
+      "name": "functions",
+      "port": 5001,
+      "host": "localhost"
+    },
+    {
+      "name": "pubsub",
+      "port": 8085,
+      "host": "localhost"
+    },
+    {
+      "name": "storage",
+      "port": 9199
+    }
+  ]
+}

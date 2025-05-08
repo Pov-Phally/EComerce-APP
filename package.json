@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "firebase-admin": "^13.3.0",
+    "firebase-functions": "^6.3.2"
+  },
+  "name": "store_admin",
+  "version": "1.0.0",
+  "description": "Admin app",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
