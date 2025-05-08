@@ -3,11 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kh_online_store/Controller/Wishlist/wishlist_controller.dart';
-import 'package:kh_online_store/View/LogIn/log_in_screen.dart';
-import 'package:kh_online_store/View/navigator.dart';
+import 'package:kh_online_store/Controller/get_initial_screen_controller.dart';
 import 'package:kh_online_store/stripe_service.dart';
 import 'Controller/Cart/cart_controller.dart';
 import 'firebase_options.dart';
@@ -32,16 +30,9 @@ class MyApp extends StatelessWidget {
         textTheme: GoogleFonts.openSansTextTheme(),
       ),
       debugShowCheckedModeBanner: false,
-      home: _getInitialScreen()
+      home: GetInitialScreenController().getInitialScreen()
     );
   }
-  Widget _getInitialScreen()  {
-    User? user = FirebaseAuth.instance.currentUser;
-    if (user != null && user.emailVerified) {
-      return ScreenNavigator();
-    } else {
-      return LogInScreen();
-    }
-  }
+
 
 }
