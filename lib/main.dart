@@ -8,6 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:kh_online_store/Controller/Wishlist/wishlist_controller.dart';
 import 'package:kh_online_store/View/LogIn/log_in_screen.dart';
 import 'package:kh_online_store/View/navigator.dart';
+import 'package:kh_online_store/stripe_service.dart';
 import 'Controller/Cart/cart_controller.dart';
 import 'firebase_options.dart';
 
@@ -15,8 +16,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await GetStorage.init();
-  Stripe.publishableKey =
-      "pk_test_51R63PQEHsXrhHC8iFUgOpti3ApHf8MzC3fmXcy3K1Z4WxwDNUhiihWVmMNxjrzrwOUUHcZMFK2fBLctkobJ3798I00pRvCbqbE";
+  Stripe.publishableKey = StripeService().stripePublishableKey;
   await Stripe.instance.applySettings();
   Get.put(CartController());
   Get.put(WishlistController());
