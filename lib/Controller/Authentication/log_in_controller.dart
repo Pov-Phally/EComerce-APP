@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:kh_online_store/Reusable%20Widget/alert_message.dart';
-import '../../Data/Authentication/log_in_repository.dart';
+import '../../Data/Repositories/Authentication/log_in_repository.dart';
 import '../../View/navigator.dart';
 
 class LogInController extends GetxController {

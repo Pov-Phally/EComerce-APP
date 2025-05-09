@@ -3,8 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 
-import '../../Model/user_model.dart';
-import '../Repositories/User/user_repository.dart';
+import '../../../Model/user_model.dart';
+import '../User/user_repository.dart';
 
 class RegisterRepository extends GetxController {
   static RegisterRepository get instance => Get.find();

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-import '../../Data/Authentication/register_repository.dart';
+import '../../Data/Repositories/Authentication/register_repository.dart';
 import '../../Data/Repositories/User/user_repository.dart';
 import '../../Model/user_model.dart';
 import '../../Reusable Widget/alert_message.dart';
