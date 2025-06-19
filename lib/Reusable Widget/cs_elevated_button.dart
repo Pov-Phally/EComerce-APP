@@ -5,7 +5,12 @@ class CSElevatedButton extends StatelessWidget {
   final void Function()? onPressed;
   final EdgeInsetsGeometry? padding;
 
-  const CSElevatedButton({super.key, required this.text, this.onPressed, this.padding,});
+  const CSElevatedButton({
+    super.key,
+    required this.text,
+    this.onPressed,
+    this.padding,
+  });
 
   @override
   Widget build(BuildContext context) {

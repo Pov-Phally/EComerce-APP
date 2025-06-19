@@ -132,7 +132,7 @@ class CheckoutScreen extends StatelessWidget {
                                   '\$${product.price}',
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 16,
+                                    fontSize: 14,
                                   ),
                                 ),
                               ],
@@ -205,21 +205,27 @@ class CheckoutScreen extends StatelessWidget {
                 ),
               ),
             ),
+
             //Proceed to Payment
-            CSElevatedButton(
-              text: 'Proceed to Payment',
-              onPressed: () async {
-                if (addressController.selectedAddress.value.id.isEmpty) {
-                  alert(context, 'Please select an address');
-                } else {
-                  await paymentController.initPayment(
-                    email: UserRepository.instance.authUser!.email!,
-                    amount: cartController.totalPrice,
-                    context: context,
-                  );
-                }
-              },
-            ),
+            Obx(() {
+              return CSElevatedButton(
+                text:
+                    paymentController.isLoading.value
+                        ? 'Proceeding...'
+                        : 'Proceed to Payment',
+                onPressed: () async {
+                  if (addressController.selectedAddress.value.id.isEmpty) {
+                    alert(context, 'Please select an address');
+                  } else {
+                    await paymentController.initPayment(
+                      email: UserRepository.instance.authUser!.email!,
+                      amount: cartController.totalPrice,
+                      context: context,
+                    );
+                  }
+                },
+              );
+            }),
           ],
         ),
       ),

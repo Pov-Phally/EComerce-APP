@@ -26,13 +26,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      theme: ThemeData(
-        textTheme: GoogleFonts.openSansTextTheme(),
-      ),
+      theme: ThemeData(textTheme: GoogleFonts.openSansTextTheme()),
       debugShowCheckedModeBanner: false,
-      home: GetInitialScreenController().getInitialScreen()
+      home: GetInitialScreenController().getInitialScreen(),
     );
   }
-
-
 }

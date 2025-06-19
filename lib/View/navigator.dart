@@ -6,7 +6,6 @@ import 'Setting/setting_screen.dart';
 import 'Store/store_screen.dart';
 import 'Wishlist/whitelist_screen.dart';
 
-
 class ScreenNavigator extends StatelessWidget {
   ScreenNavigator({super.key});
   final controller = NavController();
@@ -44,6 +43,10 @@ class ScreenNavigator extends StatelessWidget {
 
 class NavController extends GetxController {
   final _selectIndex = 0.obs;
-  final _screen =
-      [HomeScreen(), StoreScreen(), WishlistScreen(), SettingScreen()].obs;
+  final _screen = [
+    HomeScreen(),
+    StoreScreen(),
+    WishlistScreen(),
+    SettingScreen(),
+  ];
 }

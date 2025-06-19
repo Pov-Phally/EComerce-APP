@@ -25,7 +25,7 @@ class CSAppBar extends StatelessWidget {
                 ),
               ),
               Text(
-                downText?? '',
+                downText ?? '',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 18,

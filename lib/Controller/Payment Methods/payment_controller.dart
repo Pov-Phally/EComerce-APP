@@ -20,6 +20,7 @@ class PaymentController extends GetxController {
   final cartController = Get.put(CartController());
   final orderRepository = Get.put(OrderRepository());
   final addressController = Get.put(AddressController());
+  var isLoading = false.obs;
 
   /// Initializes the payment process by creating a payment intent,
   /// initializing the payment sheet, and processing the order if payment is successful.
@@ -29,6 +30,7 @@ class PaymentController extends GetxController {
     required BuildContext context,
   }) async {
     int amountInCents = (amount * 100).toInt();
+    isLoading.value = true;
     try {
       // 1. Create a payment intent on the server
       final response = await http.post(
@@ -53,14 +55,17 @@ class PaymentController extends GetxController {
           customerEphemeralKeySecret: jsonResponse['ephemeralKey'],
         ),
       );
+      isLoading.value = false;
       await Stripe.instance.presentPaymentSheet();
-
       // 3. Process the order and clear the cart if payment is successful
       await processOrder(amount);
       clearCart();
     } catch (error) {
       if (error is StripeException) {
-        alert(Get.context!, 'An error occurred: ${error.error.localizedMessage}');
+        alert(
+          Get.context!,
+          'An error occurred: ${error.error.localizedMessage}',
+        );
         if (kDebugMode) {
           print('Error from Stripe: ${error.error.localizedMessage}');
         }
@@ -101,7 +106,7 @@ class PaymentController extends GetxController {
       );
       // Navigate to the ScreenNavigator screen
       Get.offAll(() => ScreenNavigator());
-     alert(Get.context!, 'Order Place Successfully');
+      alert(Get.context!, 'Order Place Successfully');
       // Save the order to Firestore
       await orderRepository.saveOrder(order, userId);
     } catch (e) {
