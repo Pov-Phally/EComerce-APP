@@ -30,7 +30,7 @@ class AddProductController extends GetxController {
   List<Product> products = [];
   List <CategoriesModel>categories = [];
   RxBool isFeatured = false.obs;
-  List<String> imageUrls = [];
+  var imageUrls = <String>[].obs;
   final ImagePicker _picker = ImagePicker();
   var selectedImageNames = <String>[].obs;
   List<File> selectedImageFiles = [];
@@ -165,6 +165,14 @@ class AddProductController extends GetxController {
   void removeSelectedImage(int index) {
     selectedImageNames.removeAt(index);
   }
+  
+  //Remove image from imageUrls
+  void removeImage(int index) {
+    if (index >= 0 && index < imageUrls.length) {
+      imageUrls.removeAt(index);
+    }
+  }
+  
   // Fetch categories
   Future<void> fetchCategories() async {
     try {
@@ -214,6 +222,50 @@ class AddProductController extends GetxController {
     }
   }
 
+  // Update product
+  updateProduct(String docId) async {
+    try {
+      DocumentReference doc = productionCollection.doc(docId);
+      Product product = Product(
+        id: docId,
+        name: productNameController.text,
+        images: imageUrls,
+        category: category.value,
+        description: productDescriptionController.text,
+        price: double.parse(productPriceController.text),
+        isFeatured: isFeatured.value,
+        thumbnail: thumbnailUrl.value,
+        colors: selectedColors,
+        sizes: selectedSizes,
+      );
+      final productJson = product.toJson();
+      await doc.update(productJson);
+      setValueDefault();
+      showAlert(Get.context!, 'Product updated successfully');
+      update();
+    } catch (e) {
+      if (kDebugMode) {
+        print(e);
+      }
+    }
+  }
+
+  // Set data for update
+  setDataForUpdate(Product product) {
+    productNameController.text = product.name ?? '';
+    productIdController.text = product.id ?? '';
+    productDescriptionController.text = product.description ?? '';
+    productPriceController.text = product.price?.toString() ?? '';
+    category.value = product.category ?? '';
+    isFeatured.value = product.isFeatured ?? false;
+    thumbnailUrl.value = product.thumbnail ?? '';
+
+    selectedColors.assignAll(product.colors ?? []);
+    selectedSizes.assignAll(product.sizes ?? []);
+    imageUrls.assignAll(product.images ?? []);
+    selectedImageNames.clear();
+    selectedImageFiles.clear();
+  }
 
   setValueDefault() {
     productNameController.clear();

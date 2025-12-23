@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class CSTextFormField extends StatelessWidget {
   final String label;
+  final bool? readOnly;
   final String hintText;
   final TextEditingController controller;
   final void Function(String)? onFieldSubmitted;
@@ -12,7 +13,7 @@ class CSTextFormField extends StatelessWidget {
     required this.hintText,
     required this.controller,
     this.onFieldSubmitted,
-    this.maxLine,
+    this.maxLine,  this.readOnly,
   });
 
   @override
@@ -26,6 +27,8 @@ class CSTextFormField extends StatelessWidget {
       ),
       maxLines: maxLine,
       onSubmitted: onFieldSubmitted,
+      readOnly:  readOnly ?? false,
     );
+
   }
 }
