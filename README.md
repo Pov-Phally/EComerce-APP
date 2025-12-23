@@ -11,15 +11,13 @@ This project demonstrates scalable architecture, clean API integration, and poli
 - 🔐 **Authentication**: Secure login & signup with Firebase Auth  
 - 📦 **Product Browsing**: View product listings with categories and search  
 - 🛍️ **Cart & Checkout**: Add to cart, manage orders, and checkout flow  
-- 💳 **Payment Integration**: (Planned) support for online payments  
+- 💳 **Payment Integration**: support for online payments  
 - 👤 **Profile Management**: Update user details and view order history  
 
 ### Admin App
 - 📊 **Dashboard**: Overview of products, orders, and users  
 - ➕ **Product Management**: Add, edit, and delete products  
 - 📦 **Order Tracking**: Manage customer orders and update statuses  
-- 👥 **User Management**: View and manage registered users  
-
 ---
 
 ## 🛠️ Tech Stack
@@ -61,12 +59,6 @@ npm install --prefix functions
 - Run the app
 flutter run
 
-
-
-📈 Future Improvements
-- Integrate payment gateway (Stripe/PayPal)
-- Add push notifications for order updates
-- Improve analytics dashboard for Admin
 
 👨‍💻 Author
 Pov Phally
